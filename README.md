@@ -3,7 +3,12 @@ Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 Note, first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
 
-# Compose
+# Quick Start
+In this directory run
+```bash
+docker compose up
+```
+
 If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory.
 
 ## Wayland
