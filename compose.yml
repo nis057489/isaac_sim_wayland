@@ -1,0 +1,36 @@
+services:
+  isaac-sim:
+    build:
+      dockerfile: Dockerfile  # Custom image with code-server
+    container_name: isaac-sim
+    privileged: true
+    entrypoint: bash
+    runtime: nvidia
+    environment:
+      ACCEPT_EULA: "Y"
+      DISPLAY: "${DISPLAY}"
+      XDG_RUNTIME_DIR: "${XDG_RUNTIME_DIR}"
+      PRIVACY_CONSENT: "Y"
+      PASSWORD: "your_secure_password"  # Match Dockerfile
+    volumes:
+      - "${XDG_RUNTIME_DIR}:${XDG_RUNTIME_DIR}"
+      - ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw
+      - ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw
+      - ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw
+      - ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw
+      - ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw
+      - ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw
+      - ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw
+      - ~/docker/isaac-sim/documents:/root/Documents:rw
+      - ~/.local/share/code-server:/home/vscode/.local/share/code-server  # Persist VS Code data
+    devices:
+      - /dev/dri:/dev/dri
+    network_mode: host
+    ports:
+      - "8080:8080"  # Expose code-server
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    command: ./runapp.sh
