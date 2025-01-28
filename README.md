@@ -4,7 +4,9 @@ Note, first startup is going to take a while, be patient. But you should see a g
 
 
 # Quick Start
+
 In this directory run
+
 ```bash
 docker compose up
 ```
