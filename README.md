@@ -25,6 +25,7 @@ docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia 
 Or use this command with extra options for the NVIDIA driver. 
 
 ```bash
+xhost +
 docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
     -e "DISPLAY=$DISPLAY" -e "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" -v "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR" --device=/dev/dri \
     -e "PRIVACY_CONSENT=Y" \
