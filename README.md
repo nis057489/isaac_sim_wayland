@@ -63,5 +63,21 @@ docker run --name isaac-sim --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" 
   -v ~/docker/isaac-sim/documents:/root/Documents:rw \
   nvcr.io/nvidia/isaac-sim:4.2.0 \
   ./runapp.sh
-
 ```
+
+# How to set up NVIDIA Container Registry
+1. Create an NVIDIA Developer account then create a _personal_ API key. Whet creating the personal API key give it permission to download container images.
+
+1. Use `docker` to login to the NVIDIA Container Registry so you can download their images. The username is just `$oauthtoken`, and the password is your personal API key:
+
+```bash
+docker login nvcr.io
+```
+
+Test it by pulling an image:
+
+```bash
+docker pull nvcr.io/nvidia/isaac-sim:4.2.0
+```
+
+Note, if this image tag is really old you might get permission denied anyway since NVIDIA will have retired it, so try a newer one.
