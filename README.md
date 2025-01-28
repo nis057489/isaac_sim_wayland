@@ -86,3 +86,7 @@ docker pull nvcr.io/nvidia/isaac-sim:4.2.0
 ```
 
 Note, if this image tag is really old you might get permission denied anyway since NVIDIA will have retired it, so try a newer one.
+
+# Known issues
+
+* VS Code integration inside the container is still WIP.

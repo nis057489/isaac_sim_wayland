@@ -25,12 +25,13 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     && rm -rf /var/lib/apt/lists/*
 
-# Add Microsoft's GPG key and repository
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/vscode.gpg \
-    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main" | tee /etc/apt/sources.list.d/vscode.list
-
 # Install VS Code
-RUN apt-get update && apt-get install -y code
+RUN apt-get update && apt-get install -y \
+    software-properties-common apt-transport-https && \
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /usr/share/keyrings/packages.microsoft.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
+    apt-get update && apt-get install -y code && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # (Optional) Set up a non-root user if necessary
 # USER your_username

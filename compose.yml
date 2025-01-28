@@ -12,8 +12,15 @@ services:
       XDG_RUNTIME_DIR: "${XDG_RUNTIME_DIR}"
       PRIVACY_CONSENT: "Y"
       PASSWORD: "your_secure_password"  # Match Dockerfile
+      LD_LIBRARY_PATH: "/isaac-sim/exts/omni.isaac.ros2_bridge/humble/lib:$LD_LIBRARY_PATH"
+      RMW_IMPLEMENTATION: "rmw_fastrtps_cpp"  # Include other necessary environment variables
+      QT_X11_NO_MITSHM: "1"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      NVIDIA_DRIVER_CAPABILITIES: "all"
     volumes:
+      # Wayland stuff
       - "${XDG_RUNTIME_DIR}:${XDG_RUNTIME_DIR}"
+      # Isaac Sim Stuff
       - ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw
       - ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw
       - ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw
@@ -22,6 +29,7 @@ services:
       - ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw
       - ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw
       - ~/docker/isaac-sim/documents:/root/Documents:rw
+      # VS Code stuff
       - ~/.local/share/code-server:/home/vscode/.local/share/code-server  # Persist VS Code data
     devices:
       - /dev/dri:/dev/dri
