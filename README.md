@@ -90,3 +90,4 @@ Note, if this image tag is really old you might get permission denied anyway sin
 # Known issues
 
 * VS Code integration inside the container is still WIP.
+* Sometimes it gets stuck on a grey screen. Resizing the window fixes it though... ?
