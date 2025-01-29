@@ -1,4 +1,5 @@
 # Dockerised NVIDIA Isaac Sim GUI
+
 Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 Note, first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
@@ -6,7 +7,7 @@ Note, first startup is going to take a while, be patient. But you should see a g
 
 *Isaac Sim 4.2.0 running inside Docker on a remote host viewed via remote desktop protocol on a Mac using the Microsoft Remote Desktop app over WireGuard VPN.*
 
-# Quick Start (Compose)
+## Quick Start (Compose)
 
 In this directory run
 
@@ -19,15 +20,17 @@ If required, first edit the environment variables in `compose.yml` then run `doc
 ## Changing the ROS Distro
 
 In `compose.yml` update the `ROS_DISTRO` and `LD_LIBRARY_PATH` environment variables to reflect your required ROS version. Valid versions are:
+
 * `humble` (default)
 * `foxy`
 * `noetic`
 
-# Standalone Docker commands
+## Standalone Docker commands
 
-## Wayland
+### Wayland
 
 For Wayland I had to add the `--privileged` option
+
 ```bash
 xhost +
 docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
@@ -45,7 +48,7 @@ docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia 
     ./runapp.sh
 ```
 
-Or use this command with extra options for the NVIDIA driver. 
+Or use this command with extra options for the NVIDIA driver.
 
 ```bash
 xhost +
@@ -69,7 +72,7 @@ docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia 
     ./runapp.sh
 ```
 
-## X11
+### X11
 
 ```bash
 xhost +
@@ -89,9 +92,9 @@ docker run --name isaac-sim --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" 
   ./runapp.sh
 ```
 
-# How to set up NVIDIA Container Registry
-1. Create an NVIDIA Developer account then create a _personal_ API key. Whet creating the personal API key give it permission to download container images.
+## How to set up NVIDIA Container Registry
 
+1. Create an NVIDIA Developer account then create a *personal* API key. Whet creating the personal API key give it permission to download container images.
 1. Use `docker` to login to the NVIDIA Container Registry so you can download their images. The username is just `$oauthtoken`, and the password is your personal API key:
 
 ```bash
@@ -106,7 +109,7 @@ docker pull nvcr.io/nvidia/isaac-sim:4.2.0
 
 Note, if this image tag is really old you might get permission denied anyway since NVIDIA will have retired it, so try a newer one.
 
-# Known issues
+## Known issues
 
 * VS Code integration inside the container is still WIP.
 * Sometimes it gets stuck on a grey screen. Resizing the window fixes it though... ?
