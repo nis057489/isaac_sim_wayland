@@ -4,6 +4,8 @@ Note, first startup is going to take a while, be patient. But you should see a g
 
 <img width="1264" alt="Screenshot 2025-01-28 at 21 01 09" src="https://github.com/user-attachments/assets/7cbf8000-5abf-4cd8-83ad-db0862f98ba8" />
 
+*Isaac Sim 4.2.0 running inside Docker on a remote host viewed via remote desktop on a Mac using the Microsoft Remote Desktop app over WireGuard VPN.*
+
 # Quick Start (Compose)
 
 In this directory run
