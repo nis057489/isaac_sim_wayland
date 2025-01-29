@@ -4,6 +4,11 @@ services:
       dockerfile: Dockerfile  # Custom image with code-server
     container_name: isaac-sim
     privileged: true
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    ipc: host
     entrypoint: bash
     runtime: nvidia
     environment:
@@ -43,3 +48,24 @@ services:
           devices:
             - capabilities: [gpu]
     command: ./runapp.sh
+
+  ros_env:
+    image: nbembedded/ros2_devenv
+    privileged: true
+    command: /bin/bash
+    # Interactive shell
+    stdin_open: true
+    tty: true
+    # Networking and IPC for ROS 2
+    network_mode: host
+    ipc: host
+    environment:
+      DISPLAY: "${DISPLAY}"
+      XDG_RUNTIME_DIR: "${XDG_RUNTIME_DIR}"
+      QT_X11_NO_MITSHM: "1"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      NVIDIA_DRIVER_CAPABILITIES: "all"
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
