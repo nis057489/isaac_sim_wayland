@@ -1,7 +1,6 @@
 # Dockerised NVIDIA Isaac Sim GUI
 
 Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
-Note, first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
 <img width="1264" alt="Screenshot 2025-01-28 at 21 01 09" src="https://github.com/user-attachments/assets/7cbf8000-5abf-4cd8-83ad-db0862f98ba8" />
 
@@ -22,6 +21,8 @@ docker compose up -d && docker compose exec ros_env bash
 From there, load your simulation in Isaac SIM, press Play then you should see the ROS topics published from your SIM in the `ros_env` container with `ros2 topic list` (remember to source your ROS2 environment).
 
 *If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.*
+
+Note: first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
 ## Changing the ROS Distro
 
