@@ -14,7 +14,7 @@ In this directory run
 docker compose up
 ```
 
-If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory.
+If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.
 
 # Standalone Docker commands
 
