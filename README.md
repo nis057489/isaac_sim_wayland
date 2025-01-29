@@ -34,6 +34,8 @@ In `compose.yml` update the `ROS_DISTRO` and `LD_LIBRARY_PATH` environment varia
 
 ## Standalone Docker commands
 
+The recommended way to run this is via `docker compose` becausce you can maintain your configuration as code under vesrion control, but if you want to run standalone docker commands some examples are provided here.
+
 ### Wayland
 
 #### Nvidia Container Toolkit `nvidia-container-toolkit`
