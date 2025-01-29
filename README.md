@@ -67,9 +67,9 @@ For the legacy Nvidia docker integration we add extra options for the NVIDIA dri
 ```bash
 xhost +
 docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia -e "ACCEPT_EULA=Y" --rm --network=host \
+    -e "DISPLAY=$DISPLAY" -e "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" -v "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR" --device=/dev/dri \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -e NVIDIA_DRIVER_CAPABILITIES=all \
-    -e "DISPLAY=$DISPLAY" -e "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" -v "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR" --device=/dev/dri \
     -e "PRIVACY_CONSENT=Y" \
     -e "QT_X11_NO_MITSHM=1" \
     -e "RMW_IMPLEMENTATION=rmw_fastrtps_cpp" \
