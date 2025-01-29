@@ -13,7 +13,7 @@ Note, first startup is going to take a while, be patient. But you should see a g
 
 ## Quick Start (Compose)
 
-In this directory run the following command to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
+In this directory run the following command, (or `./run.sh`) to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
 
 ```bash
 docker compose up -d && docker compose exec ros_env bash
