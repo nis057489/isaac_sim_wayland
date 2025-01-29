@@ -52,7 +52,7 @@ services:
   ros_env:
     image: nbembedded/ros2_devenv
     privileged: true
-    command: /bin/bash
+    entrypoint: /bin/bash && echo 'source your ROS script in /opt/'
     # Interactive shell
     stdin_open: true
     tty: true
