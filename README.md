@@ -3,10 +3,13 @@
 Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 Note, first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
-<img width="1264" alt="Screenshot 2025-01-29 at 16 21 02" src="https://github.com/user-attachments/assets/fc926efa-c43b-4c78-a311-1880dd61b48c" />
 <img width="1264" alt="Screenshot 2025-01-28 at 21 01 09" src="https://github.com/user-attachments/assets/7cbf8000-5abf-4cd8-83ad-db0862f98ba8" />
 
 *Isaac Sim 4.2.0 running inside Docker on a remote host viewed via remote desktop protocol on a Mac using the Microsoft Remote Desktop app over WireGuard VPN.*
+
+<img width="1264" alt="Screenshot 2025-01-29 at 16 21 02" src="https://github.com/user-attachments/assets/fc926efa-c43b-4c78-a311-1880dd61b48c" />
+
+*Publishing to ROS topics in the Isaac SIM container from the `ros_env` container.*
 
 ## Quick Start (Compose)
 
