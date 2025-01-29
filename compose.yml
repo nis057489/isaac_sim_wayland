@@ -50,7 +50,7 @@ services:
     command: ./runapp.sh
 
   ros_env:
-    image: nbembedded/ros2_devenv
+    image: osrf/ros:humble-desktop
     privileged: true
     entrypoint: /bin/bash && echo 'source your ROS script in /opt/'
     # Interactive shell
