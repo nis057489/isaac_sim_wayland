@@ -12,8 +12,10 @@ Note, first startup is going to take a while, be patient. But you should see a g
 In this directory run the following command to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
 
 ```bash
-docker compose up
+docker compose up -d && docker compose exec ros_env bash
 ```
+
+From there, load your simulation in Isaac SIM, press Play then you should see the ROS topics published from your SIM in the `ros_env` container with `ros2 topic list` (remember to source your ROS2 environment).
 
 *If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.*
 
