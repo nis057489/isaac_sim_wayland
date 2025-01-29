@@ -36,7 +36,9 @@ In `compose.yml` update the `ROS_DISTRO` and `LD_LIBRARY_PATH` environment varia
 
 ### Wayland
 
-For Wayland I had to add the `--privileged` option
+#### Nvidia Container Toolkit `nvidia-container-toolkit`
+
+On Wayland I had to add the `--privileged` option
 
 ```bash
 xhost +
@@ -55,7 +57,9 @@ docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia 
     ./runapp.sh
 ```
 
-Or use this command with extra options for the NVIDIA driver.
+#### Legacy `nvidia-docker2`
+
+For the legacy Nvidia docker integration we add extra options for the NVIDIA driver.
 
 ```bash
 xhost +
