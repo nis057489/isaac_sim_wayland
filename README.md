@@ -2,6 +2,7 @@
 Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 Note, first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
+<img width="1264" alt="Screenshot 2025-01-28 at 21 01 09" src="https://github.com/user-attachments/assets/7cbf8000-5abf-4cd8-83ad-db0862f98ba8" />
 
 # Quick Start (Compose)
 
