@@ -9,13 +9,13 @@ Note, first startup is going to take a while, be patient. But you should see a g
 
 ## Quick Start (Compose)
 
-In this directory run
+In this directory run the following command to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
 
 ```bash
 docker compose up
 ```
 
-If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.
+*If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.*
 
 ## Changing the ROS Distro
 
