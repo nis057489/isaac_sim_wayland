@@ -45,6 +45,9 @@ xhost +
 docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
     -e "DISPLAY=$DISPLAY" -e "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" -v "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR" --device=/dev/dri \
     -e "PRIVACY_CONSENT=Y" \
+    -e "QT_X11_NO_MITSHM=1" \
+    -e "RMW_IMPLEMENTATION=rmw_fastrtps_cpp" \
+    -e "LD_LIBRARY_PATH=/isaac-sim/exts/omni.isaac.ros2_bridge/humble/lib:$LD_LIBRARY_PATH" \
     -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
     -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
     -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
@@ -63,12 +66,12 @@ For the legacy Nvidia docker integration we add extra options for the NVIDIA dri
 
 ```bash
 xhost +
-docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
+docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia -e "ACCEPT_EULA=Y" --rm --network=host \
+    -e NVIDIA_VISIBLE_DEVICES=all \
+    -e NVIDIA_DRIVER_CAPABILITIES=all \
     -e "DISPLAY=$DISPLAY" -e "XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" -v "$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR" --device=/dev/dri \
     -e "PRIVACY_CONSENT=Y" \
     -e "QT_X11_NO_MITSHM=1" \
-    -e NVIDIA_VISIBLE_DEVICES=all \
-    -e NVIDIA_DRIVER_CAPABILITIES=all \
     -e "RMW_IMPLEMENTATION=rmw_fastrtps_cpp" \
     -e "LD_LIBRARY_PATH=/isaac-sim/exts/omni.isaac.ros2_bridge/humble/lib:$LD_LIBRARY_PATH" \
     -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
@@ -88,9 +91,12 @@ docker run --privileged --name isaac-sim --entrypoint bash -it --runtime=nvidia 
 ```bash
 xhost +
 docker run --name isaac-sim --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
-  -e "PRIVACY_CONSENT=Y" \
   -v $HOME/.Xauthority:/root/.Xauthority \
   -e DISPLAY \
+  -e "PRIVACY_CONSENT=Y" \
+  -e "QT_X11_NO_MITSHM=1" \
+  -e "RMW_IMPLEMENTATION=rmw_fastrtps_cpp" \
+  -e "LD_LIBRARY_PATH=/isaac-sim/exts/omni.isaac.ros2_bridge/humble/lib:$LD_LIBRARY_PATH" \
   -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
   -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
   -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
