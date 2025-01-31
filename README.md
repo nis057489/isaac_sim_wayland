@@ -20,7 +20,7 @@ xhost + && docker compose up -d && docker compose exec ros_env bash
 
 From there, load your simulation in Isaac SIM, press Play then you should see the ROS topics published from your SIM in the `ros_env` container with `ros2 topic list` (remember to source your ROS2 environment).
 
-*If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`.*
+*If required, first edit the environment variables in `compose.yml` then run `docker compose up -d` from this directory. Interesting variables include: `ROS_DISTRO` and `LD_LIBRARY_PATH`. Change the path for the bind mount, ensuring you use the absolute path: `- /home/nick/code/isaac_nav:/home/isaac_nav`.*
 
 Note: first startup is going to take a while, be patient. But you should see a grey screen, that's how you know it's probably loading. If you are stuck on a black screen it's probably not working.
 
