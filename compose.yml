@@ -48,6 +48,7 @@ services:
           devices:
             - capabilities: [gpu]
     command: ./runapp.sh
+    stop_grace_period: 1s
 
   ros_env:
     image: osrf/ros:humble-desktop
@@ -69,3 +70,4 @@ services:
       # Allows graphical programs in the container.
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    stop_grace_period: 1s
