@@ -134,4 +134,5 @@ Note, if this image tag is really old you might get permission denied anyway sin
 * Sometimes it gets stuck on a grey screen. Resizing the window fixes it though... ?
 
 ## Troubleshooting
+
 If you try to run the Isaac Sim container before running `xhost +` you'll need to run `host +` then stop the Isaac Sim contaier before trying again. To kill the container run `docker ps` find the `isaac-sim` container ID then `docker kill $the_container_ID`.
