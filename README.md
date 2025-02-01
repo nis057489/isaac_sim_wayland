@@ -17,7 +17,7 @@ Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 In this directory run the following command, (or `./run.sh`) to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
 
 ```bash
-xhost + && docker compose up -d && docker compose exec ros_env bash
+xhost +local:root && docker compose up -d && docker compose exec ros_env bash
 ```
 
 From there, load your simulation in Isaac SIM, press Play then you should see the ROS topics published from your SIM in the `ros_env` container with `ros2 topic list` (remember to source your ROS2 environment).
