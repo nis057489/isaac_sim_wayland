@@ -12,6 +12,8 @@ Run Dockerised Isaac Sim GUI on Wayland or X11 hosts.
 
 ## Quick Start (Compose)
 
+*Note: Must run on Linux with Docker installed*
+
 In this directory run the following command, (or `./run.sh`) to start Isaac SIM and be dropped into a separate ROS2 desktop development environment where you can write your ROS publisher or other controller code.
 
 ```bash
