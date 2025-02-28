@@ -1,5 +1,5 @@
 # Use the NVIDIA Isaac Sim base image
-FROM nvcr.io/nvidia/isaac-sim:4.2.0
+FROM nvcr.io/nvidia/isaac-sim:4.5.0
 
 # Install dependencies for VS Code
 RUN apt-get update && apt-get install -y \
